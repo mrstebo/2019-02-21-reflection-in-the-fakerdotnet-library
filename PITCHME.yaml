@@ -4,7 +4,7 @@ layout : center
 # Look-and-Feel
 title: Reflection in the FakerDotNet library
 logo : assets/images/logo.png
-logo-position : bottom-right
+logo-position : top-left
 theme : night
 theme-override : assets/css/PITCHME.css
 highlight : ir-black
