@@ -4,7 +4,7 @@
 
 ### Some code?
 
----?code=mrstebo/FakerDotNet/blob/master/src/FakerDotNet/Fakers/FakeFaker.cs&lang=cs&title=Example
+---?code=src/FakeFaker.cs&lang=cs&title=FakeFaker implementation
 
 @[8-11]
 @[15-20]
