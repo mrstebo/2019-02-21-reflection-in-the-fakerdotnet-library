@@ -33,28 +33,28 @@
 
 ---
 
-@ol
+@ul
 
-- Parses strings in the format **"{FakerName.Method}"**
-- Replaces placeholders with the result of a call to the faker method
+- Looks for **"{FakerName.Method}"**
+- Replaces with the result of a call to the faker method
 
-@olend
-
----
-
-#### So this
+@ulend
 
 ---
 
-@size[1.2em]("My name is {Faker.FirstName} {Faker.LastName}")
+### So this
 
 ---
 
-#### Turns into this
+@size[0.7em]("My name is {Faker.FirstName} {Faker.LastName}")
 
 ---
 
-@size[1.2em]("My name is John Smith")
+### Turns into this
+
+---
+
+@size[0.7em]("My name is John Smith")
 
 ---
 
