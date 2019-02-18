@@ -36,7 +36,7 @@ namespace FakerDotNet.Fakers
 
             return result;
         }
-        
+
         private static (string faker, string method) ExtractMatchDataFrom(Match match)
         {
             var className = match.Groups[1].Value;
