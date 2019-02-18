@@ -1,23 +1,67 @@
-## Reflection in the FakerDotNet library
+## Reflecting on Reflection in an open source library
+
+---
+
+### What is Reflection?
+
+---
+
+### How is the library using reflection?
+
+---
+
+### What is the alternative?
+
+---
+
+### Lets take a look at the FakeFaker
+
+---?code=src/FakeFaker_interface.cs&lang=cs&title=The FakeFaker interface
+
+@[3]
+
+---?code=src/FakeFaker_class.cs&lang=cs&title=The FakeFaker class
+
+@[11-21]
+@[13-14]
+@[18]
+
+---
+
+### What the F does F do?!
+#### Who needs descriptive method names :eyes:
+
+---
+
+@ol
+
+- Parses strings in the format `"{FakerName.Method}"`
+- Replaces placeholders with the result of a call to the faker method
+
+@olend
+
+---
+
+#### So this
+
+---
+
+@size[3.5em](`"My name is {Faker.FirstName} {Faker.LastName}"`)
+
+---
+
+#### Turns into this
+
+---
+
+@size[3.5em](`"My name is John Smith"`)
 
 ---
 
 ### How does it look without reflection?
 
----?code=src/FakeFaker_without_reflection.cs&lang=cs&title=FakerFaker without reflection
+---?code=src/FakeFaker_without_reflection.cs&lang=cs&title=FakeFaker without reflection
 
-@[8-11]
-@[14-19]
-@[27-33]
-@[30]
-@[38-56]
-
----
-
-### Some code?
+### How does it look WITH reflection?
 
 ---?code=src/FakeFaker_with_reflection.cs&lang=cs&title=FakeFaker using reflection
-
-@[8-11]
-@[15-20]
-@[22]
