@@ -46,7 +46,7 @@
 
 ---
 
-@size[0.7em]("My name is {Faker.FirstName} {Faker.LastName}")
+@size[0.7em]("My name is @color[#DC143C]({Faker.FirstName} {Faker.LastName})")
 
 ---
 
@@ -54,7 +54,7 @@
 
 ---
 
-@size[0.7em]("My name is John Smith")
+@size[0.7em]("My name is @color[#DC143C](John Smith)")
 
 ---
 
