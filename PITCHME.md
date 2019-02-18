@@ -35,7 +35,7 @@
 
 @ol
 
-- Parses strings in the format `"{FakerName.Method}"`
+- Parses strings in the format **"{FakerName.Method}"**
 - Replaces placeholders with the result of a call to the faker method
 
 @olend
@@ -46,7 +46,7 @@
 
 ---
 
-@size[3.5em](`"My name is {Faker.FirstName} {Faker.LastName}"`)
+@size[1.2em]("My name is {Faker.FirstName} {Faker.LastName}")
 
 ---
 
@@ -54,7 +54,7 @@
 
 ---
 
-@size[3.5em](`"My name is John Smith"`)
+@size[1.2em]("My name is John Smith")
 
 ---
 
