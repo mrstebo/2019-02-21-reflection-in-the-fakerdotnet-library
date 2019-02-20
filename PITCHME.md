@@ -100,54 +100,268 @@
 
 ---
 
-![Running the tests](assets/images/fakerdotnet-failing-tests.gif)
+![Tests failing](assets/images/tdd_1.png)
 
 ---
 
-### A fix that doesn't need reflection
-
----
-
-![Fixing null and empty strings](assets/images/fakerdotnet-empty-string-test-passing.gif)
-
----
-
-#### Lets implement this
-### @color[#DC143C](without reflection)
-
----
-
-### What is Reflection?
-
----
-
-### How is the library using reflection?
-
----
-
-@snap[north]
-#### The final implementation
+@snap[fragment]
+#### @color[#ACA4AC](While we are here...)
 @snapend
 
-@snap[midpoint span-30]
-@code[cs zoom-01](assets/code/reflection/FakeFaker.cs)
-
-@[8-11]
-@[13-93]
-@[85-92]
+@snap[fragment]
+## @color[#DC143C](TDD)
+#### @emoji[nerd_face]
 @snapend
 
 ---
 @transition[none]
 
-@snap[north]
-#### The final implementation
+```cs
+public string F(string format)
+{
+    throw new NotImplementedException();
+}
+```
+
+---
+@transition[none]
+
+```cs
+public string F(string format)
+{
+    return format;
+}
+```
+
+---
+@transition[none]
+
+![One test passing](assets/images/tdd_2.png)
+
+---
+@transition[none]
+
+```cs
+public string F(string format)
+{
+    if (string.IsNullOrEmpty(format)) return string.Empty;
+
+    return format;
+}
+```
+
+---
+@transition[none]
+
+![One test passing](assets/images/tdd_3.png)
+
+---
+
+@snap[fragment]
+#### Lets implement this
 @snapend
 
-@snap[midpoint]
-@code[cs zoom-05](assets/code/reflection/FakeFaker.cs)
-
-@[8-11]
+@snap[fragment]
+### @color[#DC143C](without reflection)
 @snapend
+
+---
+@transition[none]
+
+@code[cs zoom-06](assets/code/manual/FakeFaker_basic.cs)
+
+@[20-36]
+@[22](Already covered this case and have @color[#DC143C](tests passing) @emoji[raised_hands])
+@[24-35](This will be our focus)
+
+---
+@transition[none]
+
+@code[cs zoom-06](assets/code/manual/FakeFaker_basic.cs)
+
+@[25]
+@[86-93]
+@[88-90](Extracted from a call to @color[#DC143C](`Regex.Match`))
+@[91]("{@color[#DC143C](Name)}.{Method}")
+@[92]("{Name}.{@color[#DC143C](Method)}")
+
+---
+@transition[none]
+
+@code[cs zoom-06](assets/code/manual/FakeFaker_basic.cs)
+
+@[26]
+@[38-53]
+@[40](Returns matches when strings contain @color[#DC143C]({Name}.{Method}))
+@[41](Look for the @color[#DC143C](first match) in the string)
+@[44-51](@color[#DC143C](GREAT!) We have found a match @emoji[thumbsup])
+@[52](No matches)
+@[52](No need to explicitly set `Success` to false @emoji[wink])
+
+---
+@transition[none]
+
+@code[cs zoom-06](assets/code/manual/FakeFaker_basic.cs)
+
+@[28]
+@[55-69]
+@[57](Holds our @color[#DC143C](output) value)
+@[58](Convert the faker to @color[#DC143C](lower case))
+@[60](Have a case for @color[#DC143C](each faker name))
+@[61](Get the value from that particular faker)
+@[68](Return the value)
+@[64-65, 68]
+@[65](That faker @color[#DC143C](doesn't exist))
+@[68](When calling the faker method @color[#DC143C](null) was returned)
+
+---
+@transition[none]
+
+@code[cs zoom-06](assets/code/manual/FakeFaker_basic.cs)
+
+@[71-84]
+@[73](Convert the method to @color[#DC143C](lower case))
+@[75, 78](Have a case for @color[#DC143C](each method))
+@[76, 79](Return the value from the invokation of the method)
+@[82](Otherwise return @color[#DC143C](null))
+
+---
+@transition[none]
+
+@code[cs zoom-06](assets/code/manual/FakeFaker_basic.cs)
+
+@[28]
+@[29-30]
+@[32](@color[#DC143C](Inject) the new value into the string)
+@[26](@color[#DC143C](Search) for another match)
+@[35](@color[#DC143C](Return) when no more matches are found)
+
+---
+
+## Now when we run the tests...
+
+@emoji[pray]
+
+---
+
+![All tests passing](assets/images/tdd_4.png)
+
+@emoji[raised_hands] @emoji[sunglasses] @emoji[tada]
+
+---
+
+### However...when we start using it in other faker modules
+@emoji[flushed]
+
+---
+
+![Faker modules failing](assets/images/tdd_5.png)
+
+---
+
+@snap[fragment]
+#### Looks like we'll need a
+## @color[#DC143C](BIGGER)
+### switch statement
+@snapend
+
+@snap[fragment]
+@emoji[see_no_evil]
+@snapend
+
+---
+@transition[none]
+
+@code[cs zoom-07](assets/code/manual/FakeFaker_with_bigger_switch.cs)
+
+@[58-74]
+@[68-70]
+
+---
+@transition[none]
+
+@code[cs zoom-05](assets/code/manual/FakeFaker_with_bigger_switch.cs)
+
+@[127-149]
+@[137-138]
+
+---
+
+![Univeristy module passing](assets/images/tdd_6.png)
+
+---
+
+## Why is this a
+# @color[#DC143C](BAD)
+## approach?
+
+@emoji[thinking_face]
+
+---
+
+### We have to
+# @color[#DC143C](MODIFY)
+## the `FakeFaker` class
+#### every time we add a new faker
+
+---
+
+### The `FakeFaker` class will get
+## @color[#DC143C](BIGGER)
+#### and
+# @color[#DC143C](BIGGER)
+
+---
+
+### Someone may
+# @color[#DC143C](MISS OUT)
+#### a method
+
+---
+
+## There could be
+# @color[#DC143C](TYPOS)
+### in the switch statement
+
+---
+
+@snap[fragment]
+## Granted...
+@snapend
+
+@snap[fragment]
+### @color[#DC143C](Tests) should find the last two issues
+@snapend
+
+---
+
+@snap[fragment north]
+### But really...
+@snapend
+
+@snap[fragment]
+#### Is this
+@snapend
+
+@snap[fragment]
+## @color[#DC143C](MANAGEBLE)
+@snapend
+
+---
+
+@snap[fragment]
+### We can improve this using
+@snapend
+
+@snap[fragment]
+# @color[#DC143C](REFLECTION)
+@emoji[raised_hands]
+@snapend
+
+---
+
+### What is Reflection?
+
+@emoji[thinking_face]
 
 ---

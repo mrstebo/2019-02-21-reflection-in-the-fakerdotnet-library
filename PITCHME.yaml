@@ -8,7 +8,8 @@ logo-position : top-left
 theme : night
 theme-override : assets/css/PITCHME.css
 highlight : ir-black
-code-line-numbers: true
+code-line-numbers : true
+# code-reveal : true
 
 # Behavior
 transition : slide
