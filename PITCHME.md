@@ -5,7 +5,9 @@
 #### Say @emoji[wave] to
 ## @color[#DC143C](FakerDotNet)
 
----?image=assets/images/fakerdotnet_repo.png
+---
+
+![FakeFaker](assets/images/fakerdotnet_repo.png)
 
 ---
 
@@ -71,17 +73,27 @@
 
 ---
 
-@snap[west h3-white span-30]
-#### @emoji[see_no_evil]
-@snapend
+## BY
+# WRITING
+### @color[#DC143C](UNIT TESTS)
+#### @emoji[tada]
 
-@snap[east span-40]
-@tweet[https://twitter.com/SwiftOnSecurity/status/685898921063874560]
+---
+
+# @color[#92F11A](NUnit)
+
+@snap[south fragment]
+[https://nunit.org/]()
 @snapend
 
 ---
 
-#### Unit tests @emoji[tada]
+# @color[#FCE41C](FakeItEasy)
+
+@snap[south fragment]
+[https://fakeiteasy.github.io/]()
+@snapend
+---
 
 @code[cs zoom-06](assets/code/tests/FakeFakerTests.cs)
 
