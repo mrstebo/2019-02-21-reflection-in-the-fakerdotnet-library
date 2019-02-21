@@ -43,18 +43,16 @@ var person = new Person
 @transition[none]
 
 ```cs
-var firstName = person
-    .GetType()
+var firstName = typeof(Person)
     .GetProperty("FirstName")
     .GetValue(person, null);
 
 Console.WriteLine(firstName);
 ```
 
-@[2](Invoke @color[#DC143C](`GetType`) to get the objects @color[#DC143C](`Type`))
-@[3](Look for the @color[#DC143C](FirstName) property on that @color[#DC143C](`Type`))
-@[4](Get the @color[#DC143C](value) of that property from the passed in @color[#DC143C](instance) of the object)
-@[6](Returns @color[#DC143C](John))
+@[2](Look for the @color[#DC143C](FirstName) property on that @color[#DC143C](`Type`))
+@[3](Get the @color[#DC143C](value) of that property from the passed in @color[#DC143C](instance) of the object)
+@[5](Returns @color[#DC143C](John))
 
 ---
 @transition[none]
