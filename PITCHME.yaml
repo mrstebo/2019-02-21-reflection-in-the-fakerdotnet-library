@@ -5,6 +5,7 @@ layout : center
 title: Reflecting on Reflection in an open source library
 logo : assets/images/logo.png
 logo-position : top-left
+footnote: Reflecting on Reflection in an open source library - Steven Atkinson @ Dootrix
 theme : night
 theme-override : assets/css/PITCHME.css
 highlight : ir-black
@@ -14,3 +15,5 @@ code-line-numbers : true
 # Behavior
 transition : slide
 published : false
+pro-menus-hidden : true
+print-fragments : true
