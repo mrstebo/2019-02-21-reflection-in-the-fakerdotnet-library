@@ -25,14 +25,14 @@
 
 @[3](Handle @color[#DC143C](empty) or @color[#DC143C](null) strings @emoji[punch])
 
-@[5](Create a local variable to store the result)
-@[6](Create a local variable we can use in our `while` loop below)
-@[7](Find any matches in the string)
-@[9](Create an instance of the specific faker class)
-@[10](Get the value from invoking the specific method on the faker class)
-@[11-14](Inject the new value back into the `result` variable)
+@[5](Create a local variable to store the @color[#DC143C](result))
+@[6](Create a local variable to store the @color[#DC143C](match) so we can use in it in our `while` loop below)
+@[7](Find a @color[#DC143C](match) in the string)
+@[9](Create an instance of the specific @color[#DC143C](faker) class)
+@[10](Get the @color[#DC143C](value) from invoking the specific method on the faker class)
+@[11-14](Inject the new value between the @color[#DC143C](start) and @color[#DC143C](end) and update the @color[#DC143C](result))
 @[7-15](Continue doing this until no more matches are found)
-@[17](Return the result)
+@[17](Return the @color[#DC143C](result))
 @[6](What does @color[#DC143C](`FakerMatch`) look like?)
 
 ---
